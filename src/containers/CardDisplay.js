@@ -6,10 +6,19 @@ import './card-display.css';
 
 const CardDisplay = ({setCardData,cardData,data,setData}) => {
   
-    const [noCards,setNoCards] = useState(false);
+    const [noCards,setNoCards] = useState(true);
     const [cardDataUpdate,setCardDataUpdate] = useState('');
     const [expandCard,setExpandCard] = useState(false);
   
+    useEffect(()=> {
+        if(cardData.length === 0) {
+            setNoCards(true);
+        }
+        else{
+            setNoCards(false)
+        }
+    },[cardData])
+
     useEffect(()=> {
         if(cardDataUpdate && expandCard) {
             let expandedCardData = getCardDataById(data,setCardData,cardDataUpdate,false);
@@ -47,7 +56,7 @@ expandCard={expandCard} setExpandCard={setExpandCard} setCardDataUpdate={setCard
 <CardBoard cardBoardData={card} 
 expandCard={expandCard} setExpandCard={setExpandCard} cardDataUpdate={cardDataUpdate} setCardDataUpdate={setCardDataUpdate}/>)}
 
-{noCards? (<div><p>Nothing to show here yet. Make some cards!</p></div>):(<></>)}
+{noCards? (<div><p id='nothing'>Nothing to show here yet. Make some cards!</p></div>):(<></>)}
 </div>
 </div>
     )

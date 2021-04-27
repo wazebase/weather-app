@@ -8,7 +8,11 @@ describe('Weather Card',()=> {
     let props;
 
     beforeEach(()=> {
-        mountedWeatherCard = shallow(<WeatherCard />);
+        props = {
+            expandCard: true
+        }
+
+        mountedWeatherCard = shallow(<WeatherCard {...props}/>);
     })
 
     it('renders weather card',()=> {
@@ -59,5 +63,11 @@ describe('Weather Card',()=> {
          mountedWeatherCardWithCallback.find('#show-more').simulate('click');
          expect(mockCallBack.mock.calls.length).toBe(1);
          
+    })
+
+    it('does not display card container if one card is being expanded',()=> {
+        let container = mountedWeatherCard.find('#weather-card');
+        let style = container.get(0).props.style;
+        expect(style).toHaveProperty('display','none');
     })
 })

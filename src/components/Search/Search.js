@@ -33,7 +33,7 @@ const Search = ({setCity,setData,city,data,setCardData,cardData}) => {
         }
 
     return (
-        <div id="search">
+        <div id="search-div">
         <input id="cityName" placeholder="Enter your city" onInput={(event)=>{setCity(event.target.value.toLowerCase())}}></input>
         <button id="search" onClick={()=>handleSearch()}>Search</button>
         </div>

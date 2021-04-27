@@ -9,7 +9,7 @@ const CardBoard = ({cardBoardData,setCardDataUpdate,cardDataUpdate,setExpandCard
 
 return(
 <div id='card-board'>
-    <button onClick={handleShowLess}>Show Less</button>
+    <button id='show-less' onClick={handleShowLess}>Show Less</button>
 <h1 id='city'>{cardBoardData[0].city}</h1>
 <p id="weatherName">{cardBoardData[0].weatherName}</p>
 <div id='small-card-data'>

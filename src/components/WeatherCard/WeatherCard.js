@@ -10,13 +10,6 @@ const WeatherCard = (props) => {
     props.setData(prevState=>{
       return prevState.filter(data=>data.city.id !== props.id);
     })
-    
-    if(props.cardData.length===1) {
-      props.setNoCards(true);
-    }
-    else {
-      props.setNoCards(false);
-    }
   }
 
   const handleShowMore = () => {
